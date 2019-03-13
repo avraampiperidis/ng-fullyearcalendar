@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
 import { Month } from "../model/Month";
 
 @Component({
     selector:'month-calendar',
     templateUrl:'monthly-calendar.html',
-    styleUrls:['monthly-calendar.scss']
+    styleUrls:['monthly-calendar.scss'],
+    changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class MonthlyCalendarComponent implements OnInit {
    
@@ -13,6 +14,8 @@ export class MonthlyCalendarComponent implements OnInit {
     @Input()
     month:Month;
     weekDays: any[] = [];
+
+    constructor(private cd:ChangeDetectorRef){}
 
     ngOnInit(): void {
         let dayIndex = this.locale.firstDayOfWeek;

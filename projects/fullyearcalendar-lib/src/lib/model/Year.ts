@@ -4,14 +4,13 @@ import { Day } from "./Day";
 
 export class Year {
 
-    monthsArr: string[] = ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάϊος", "Ιούνιος", "Ιούλιος", 
-    "Αύγουστος", "Σεπτέμβριος", "Οκτώμβριος", "Νοέμβριος", "Δεκέμβριος"];
     year: number;
     months: Month[] = [];
 
     constructor(y: number) {
         this.year = y;
         this._initYear();
+        //will kind of remove/delete empty not valid days.
         // for(let i=0; i < this.months.length; i++) {
         //     for(let x=0; x < this.months[i].weeks.length; x++) {
         //         for(let y=0; y < this.months[i].weeks[x].daysOfWeek.length; y++) {
@@ -23,11 +22,12 @@ export class Year {
         // }
     }
 
+
     private _initYear(): void {
         for (let i = 0; i < 12; i++) {
             let days:Day[] = this.getMonthDays(i, this.year)
             let month = new Month(days);
-            month.description = this.monthsArr[i];
+            month.index = i;
             month.days = days;
             this.months.push(month);
         }

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FullyearcalendarLibModule } from 'projects/fullyearcalendar-lib/src/public_api';
+import { FullyearcalendarLibModule, MonthlyCalendarModule } from 'projects/fullyearcalendar-lib/src/public_api';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,8 @@ import { FullyearcalendarLibModule } from 'projects/fullyearcalendar-lib/src/pub
   ],
   imports: [
     BrowserModule,
-    FullyearcalendarLibModule
+    FullyearcalendarLibModule,
+    MonthlyCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

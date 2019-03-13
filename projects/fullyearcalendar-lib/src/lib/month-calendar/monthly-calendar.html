@@ -1,6 +1,6 @@
 <div *ngIf="month" class="container">
     <div style="text-align: center;">
-        {{month.description}}
+        {{locale['monthNames'][month.index]}}
     </div>
     <table>
         <thead>

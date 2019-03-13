@@ -2,8 +2,8 @@ import { Week } from "./Week";
 import { Day } from "./Day";
 
 export class Month {
+    index:number;
     monthValue: number;
-    month: Month
     description: string;
     days: Day[] = [];
     weeks: Week[] = [];
