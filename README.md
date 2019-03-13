@@ -1,3 +1,3 @@
-# FullYearCalendarLibApp
+# Full Year Calendar
 
-a full year calendar library for angular.
+A full year angular component.
