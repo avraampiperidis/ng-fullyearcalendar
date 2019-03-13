@@ -1,0 +1,25 @@
+<div *ngIf="month" class="container">
+    <div style="text-align: center;">
+        {{month.description}}
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let wd of weekDays">
+                    <div>{{wd}}</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let week of month.weeks">
+                <td *ngFor="let day of week.daysOfWeek" style="text-align: center;">
+                    <div *ngIf="day.init">
+                        <div>
+                            {{day.day.getDate()}}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
