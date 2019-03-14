@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { DayOfWeek } from './model/dayOfWeek';
 import { Year } from './model/Year';
 
@@ -17,7 +17,6 @@ export const FULL_YEAR_DEFAULT_LOCALE:any = {
   selector: 'ng-fullyearcalendar-lib',
   templateUrl:'fullyearcalendar-lib.html',
   styleUrls:['fullyearcalendar-lib.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class FullyearcalendarLibComponent {
 
@@ -26,7 +25,7 @@ export class FullyearcalendarLibComponent {
 
   public year:Year;
 
-  constructor(private cd:ChangeDetectorRef) { }
+  constructor() { }
 
   @Input('year')
   set _initYear(year:number) {

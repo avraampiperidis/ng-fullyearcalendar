@@ -3,7 +3,15 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <ng-fullyearcalendar-lib [year]="2019"></ng-fullyearcalendar-lib>
+  <label>Actions</label>
+  <div>
+    <button (click)="year = year-1">&lt;&lt; Prev year:{{year-1}}</button>
+    <button (click)="changeMonthLocale()">change month locale</button>
+    <button (click)="changeDayLocale()">change day locale</button>
+    <button (click)="year = year+1">Next year:{{year+1}}&gt;&gt;</button>
+  </div>
+
+  <ng-fullyearcalendar-lib [year]="year"></ng-fullyearcalendar-lib>
 
   <div style="width: 250px;">
     <p>My month component</p>
