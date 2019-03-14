@@ -1,10 +1,10 @@
 
 :host {
     .grid-container {
-        display: grid;
+        display: inline-grid;
         grid-template-columns: auto auto auto;
         background-color: #2196F3;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
     }
     .grid-item {
         background-color: rgba(255, 255, 255, 0.8);
