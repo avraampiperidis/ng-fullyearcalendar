@@ -8,6 +8,7 @@
         &.grid-responsive { 
             $very-small:0px;
             $small:400px;
+            $small-med:600px;
             $medium:800px;
             $large:1150px;
             @media screen and (min-width:$very-small) {
@@ -15,6 +16,9 @@
             }
             @media screen and (min-width:$small) {
                 grid-template-columns: repeat(2, 1fr) !important;    
+            }
+            @media screen and (min-width:$small-med) {
+                grid-template-columns: repeat(3, 1fr) !important;    
             }
             @media screen and (min-width:$medium) {
                 grid-template-columns: repeat(4, 1fr) !important;    
