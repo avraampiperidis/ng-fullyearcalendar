@@ -11,13 +11,9 @@
     <button (click)="year = year+1">Next year:{{year+1}}&gt;&gt;</button>
   </div>
 
-  <ng-fullyearcalendar-lib [year]="year"></ng-fullyearcalendar-lib>
+  <ng-fullyearcalendar-lib (onDaySelect)="onDaySelect($event)"  [year]="year"></ng-fullyearcalendar-lib>
+  selcted day: {{selectedDate | date}}
 
-  <div style="width: 250px;">
-    <p>My month component</p>
-    <month-calendar [month]="month" [locale]="locale"></month-calendar>
-  </div>
-  
 </div>
 
 

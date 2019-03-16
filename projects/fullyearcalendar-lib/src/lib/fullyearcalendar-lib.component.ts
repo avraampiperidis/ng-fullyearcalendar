@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { DayOfWeek } from './model/dayOfWeek';
 import { Year } from './model/Year';
 
@@ -18,18 +18,33 @@ export const FULL_YEAR_DEFAULT_LOCALE:any = {
   templateUrl:'fullyearcalendar-lib.html',
   styleUrls:['fullyearcalendar-lib.scss'],
 })
-export class FullyearcalendarLibComponent {
+export class FullyearcalendarLibComponent implements OnDestroy {
+  
 
   @Input()
   locale:any = FULL_YEAR_DEFAULT_LOCALE;
+
+  @Input()
+  responsive:boolean = true;
+
+  @Output()
+  onDaySelect:EventEmitter<Date> = new EventEmitter<Date>();
 
   public year:Year;
 
   constructor() { }
 
+  ngOnDestroy(): void {
+    this.onDaySelect.unsubscribe();
+  }
+
   @Input('year')
   set _initYear(year:number) {
     this.year = new Year(year);
+  }
+
+  onDayClicked(day:Date):void {
+    this.onDaySelect.emit(day);
   }
 
 }

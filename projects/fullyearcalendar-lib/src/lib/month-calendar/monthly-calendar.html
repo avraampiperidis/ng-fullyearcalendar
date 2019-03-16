@@ -13,7 +13,7 @@
         <tbody>
             <tr *ngFor="let week of month.weeks">
                 <td *ngFor="let day of week.daysOfWeek" style="text-align: center;">
-                    <div *ngIf="day.init">
+                    <div (click)="dayClick(day)" *ngIf="day.init">
                         <div>
                             {{day.day.getDate()}}
                         </div>

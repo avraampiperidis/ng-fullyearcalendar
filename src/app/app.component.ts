@@ -20,23 +20,25 @@ export class AppComponent implements OnInit {
 
   dayNamesMinEn:string[] = FULL_YEAR_DEFAULT_LOCALE.dayNamesMin;
 
-  month:Month;
   locale:any = FULL_YEAR_DEFAULT_LOCALE;
 
   year:number = new Date().getFullYear();
 
+  selectedDate:Date;
+
   ngOnInit(): void {
-    //for custom month names
-    //this.locale.monthNames = this.monthsArr;
-    this.month = new Year(this.year).months[6];
   }
   
   changeMonthLocale():void {
-    this.locale.monthNames = (this.locale.monthNames == this.monthNamesGr) ? this.locale.monthNames = this.monthNamesEn : this.locale.monthNames = this.monthNamesGr; 
+    this.locale.monthNames = (this.locale.monthNames == this.monthNamesGr) ? this.monthNamesEn : this.monthNamesGr; 
   }
 
   changeDayLocale():void {
-    this.locale.dayNamesMin = (this.locale.dayNamesMin == this.dayNamesMinGr) ? this.locale.dayNamesMin = this.dayNamesMinEn : this.locale.dayNamesMin = this.dayNamesMinGr; 
+    this.locale.dayNamesMin = (this.locale.dayNamesMin == this.dayNamesMinGr) ? this.dayNamesMinEn : this.dayNamesMinGr; 
+  }
+
+  onDaySelect(day:Date):void {
+    this.selectedDate = day;
   }
 
 }
