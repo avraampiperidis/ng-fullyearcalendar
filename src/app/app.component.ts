@@ -26,7 +26,36 @@ export class AppComponent implements OnInit {
 
   selectedDate:Date;
 
+  dates:any[];
+  disabledDays:Date[];
+
   ngOnInit(): void {
+    this.dates = [
+      {
+        id:1,
+        tooltip:'Range 1',
+        start:new Date('2019-01-21T00:34:15Z'),
+        end:new Date('2019-02-21T00:34:15Z'),
+        color:'grey',
+        select: (range:any)=> this.onRangeSelect(range)
+      },
+      {
+        id:2,
+        tooltip:'Range 1',
+        start:new Date('2019-03-21T00:34:15Z'),
+        end:new Date('2019-05-21T00:34:15Z'),
+        color:'grey',
+        select: (range:any)=> this.onRangeSelect(range)
+      }
+    ];
+
+    this.disabledDays = [
+      new Date('2019-07-21T00:34:15Z'),
+      new Date('2019-07-25T00:34:15Z'),
+    ]
+  }
+
+  onRangeSelect(range:any) {
   }
   
   changeMonthLocale():void {

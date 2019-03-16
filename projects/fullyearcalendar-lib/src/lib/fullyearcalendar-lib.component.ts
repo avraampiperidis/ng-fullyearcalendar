@@ -27,6 +27,12 @@ export class FullyearcalendarLibComponent implements OnDestroy {
   @Input()
   responsive:boolean = true;
 
+  @Input()
+  values:any[];
+
+  @Input()
+  disabledDays:Date[];
+
   @Output()
   onDaySelect:EventEmitter<Date> = new EventEmitter<Date>();
 
