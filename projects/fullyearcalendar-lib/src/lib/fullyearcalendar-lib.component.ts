@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, DoCheck } from '@angular/core';
 import { DayOfWeek } from './model/dayOfWeek';
 import { Year } from './model/Year';
 
@@ -18,9 +18,10 @@ export const FULL_YEAR_DEFAULT_LOCALE:any = {
   templateUrl:'fullyearcalendar-lib.html',
   styleUrls:['fullyearcalendar-lib.scss'],
 })
-export class FullyearcalendarLibComponent implements OnDestroy {
+export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   
-
+  private initial_data:any;
+  
   @Input()
   locale:any = FULL_YEAR_DEFAULT_LOCALE;
 
@@ -28,11 +29,8 @@ export class FullyearcalendarLibComponent implements OnDestroy {
   responsive:boolean = true;
 
   @Input()
-  values:any[];
-
-  @Input()
-  disabledDays:Date[];
-
+  value:any;
+ 
   @Output()
   onDaySelect:EventEmitter<Date> = new EventEmitter<Date>();
 
@@ -44,10 +42,46 @@ export class FullyearcalendarLibComponent implements OnDestroy {
     this.onDaySelect.unsubscribe();
   }
 
+  ngDoCheck(): void { 
+    if(JSON.stringify(this.initial_data) !== JSON.stringify(this.value)) {
+      this.initial_data = JSON.parse(JSON.stringify(this.value));
+      this.initYear(this.year.year);
+    }
+  }
+
+
   @Input('year')
   set _initYear(year:number) {
-    this.year = new Year(year);
+      this.initYear(year);
   }
+
+  private initYear(year:number) {
+    this.year = new Year(year);
+    setTimeout(()=> {
+      if(this.value) {
+        this.initial_data = JSON.parse(JSON.stringify(this.value));
+        if(this.value.dates && this.value.dates.length > 0){
+          for(let d of this.value.dates) {
+            for(let m of this.year.months) {
+              for(let w of m.weeks) {
+                for(let day of w.daysOfWeek) {
+                  if(day.day >= d.start && day.day <= d.end) {
+                    day.color = d.color;
+                    day.select = ():void => {
+                      let dClone = JSON.parse(JSON.stringify(d));
+                      dClone.day = day;
+                      d.select(dClone);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
 
   onDayClicked(day:Date):void {
     this.onDaySelect.emit(day);

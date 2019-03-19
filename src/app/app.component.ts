@@ -26,36 +26,52 @@ export class AppComponent implements OnInit {
 
   selectedDate:Date;
 
-  dates:any[];
-  disabledDays:Date[];
+  value:any;
 
   ngOnInit(): void {
-    this.dates = [
-      {
-        id:1,
-        tooltip:'Range 1',
-        start:new Date('2019-01-21T00:34:15Z'),
-        end:new Date('2019-02-21T00:34:15Z'),
-        color:'grey',
-        select: (range:any)=> this.onRangeSelect(range)
-      },
-      {
-        id:2,
-        tooltip:'Range 1',
-        start:new Date('2019-03-21T00:34:15Z'),
-        end:new Date('2019-05-21T00:34:15Z'),
-        color:'grey',
-        select: (range:any)=> this.onRangeSelect(range)
-      }
-    ];
+    this.value = {
+      dates:[
+        {
+          id:1,
+          tooltip:'Range 1',
+          start:new Date('2019-01-21T00:34:15Z'),
+          end:new Date('2019-02-21T00:34:15Z'),
+          color:'grey',
+          select: (range:any)=> this.onRangeSelect(range)
+        },
+        {
+          id:2,
+          tooltip:'Range 2',
+          start:new Date('2019-03-21T00:34:15Z'),
+          end:new Date('2019-05-21T00:34:15Z'),
+          color:'blue',
+          select: (range:any)=> this.onRangeSelect(range)
+        }
+      ],
+      disabledDays:[ 
+        new Date('2019-07-21T00:34:15Z'),
+        new Date('2019-07-25T00:34:15Z')
+      ]
+    };
 
-    this.disabledDays = [
-      new Date('2019-07-21T00:34:15Z'),
-      new Date('2019-07-25T00:34:15Z'),
-    ]
+    setTimeout(()=> {
+      this.value.dates.push({
+        id:3,
+        tooltip:'Range 3',
+        start:new Date('2019-07-21T00:34:15Z'),
+        end:new Date('2019-08-21T00:34:15Z'),
+        color:'red',
+        select: (range)=> this.onRangeSelect(range)
+      });
+    },2500);
   }
 
   onRangeSelect(range:any) {
+    console.log('onRangeSelect',range)
+  }
+
+  onDaySelect(day:Date):void {
+    this.selectedDate = day;
   }
   
   changeMonthLocale():void {
@@ -66,8 +82,5 @@ export class AppComponent implements OnInit {
     this.locale.dayNamesMin = (this.locale.dayNamesMin == this.dayNamesMinGr) ? this.dayNamesMinEn : this.dayNamesMinGr; 
   }
 
-  onDaySelect(day:Date):void {
-    this.selectedDate = day;
-  }
 
 }

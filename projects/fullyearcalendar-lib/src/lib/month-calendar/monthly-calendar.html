@@ -14,7 +14,7 @@
             <tr *ngFor="let week of month.weeks">
                 <td *ngFor="let day of week.daysOfWeek" style="text-align: center;">
                     <div (click)="dayClick(day)" *ngIf="day.init">
-                        <div>
+                        <div [ngStyle]="day.color ? {'background':day.color} : {'background':'transparent'}">
                             {{day.day.getDate()}}
                         </div>
                     </div>

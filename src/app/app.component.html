@@ -11,7 +11,7 @@
     <button (click)="year = year+1">Next year:{{year+1}}&gt;&gt;</button>
   </div>
 
-  <ng-fullyearcalendar-lib [values]="dates" [disabledDays]="disabledDays" (onDaySelect)="onDaySelect($event)"  [year]="year"></ng-fullyearcalendar-lib>
+  <ng-fullyearcalendar-lib [(value)]="value" (onDaySelect)="onDaySelect($event)"  [year]="year"></ng-fullyearcalendar-lib>
   selcted day: {{selectedDate | date}}
 
 </div>
