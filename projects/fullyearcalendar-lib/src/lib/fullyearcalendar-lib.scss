@@ -6,13 +6,13 @@
         background-color: #2196F3;
         grid-template-columns: repeat(4, 1fr);    
         &.grid-responsive { 
-            $very-small:0px;
+            // $very-small:0px;
             $small:400px;
             $medium:800px;
             $large:1150px;
-            @media screen and (min-width:$very-small) {
-                grid-template-columns: repeat(1, 1fr) !important;    
-            }
+            // @media screen and (min-width:$very-small) {
+            //     grid-template-columns: repeat(1, 1fr) !important;    
+            // }
             @media screen and (min-width:$small) {
                 grid-template-columns: repeat(2, 1fr) !important;    
             }
