@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnDestroy, DoCheck } from '@angular/core';
 import { DayOfWeek } from './model/dayOfWeek';
 import { Year } from './model/Year';
+import {Range} from './model/Range';
 
 export const FULL_YEAR_DEFAULT_LOCALE:any = {
   firstDayOfWeek: 0,
@@ -68,14 +69,18 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
             for(let w of m.weeks) {
               for(let day of w.daysOfWeek) {
                 if(day.day >= d.start && day.day <= d.end) {
-                  day.color = d.color;
-                  day.tooltip = d.tooltip;
-                  day.select = ():void => {
-                    //lose reference
-                    let dClone = JSON.parse(JSON.stringify(d));
-                    dClone.day = day.day;
-                    d.select(dClone);
+                  let range = new Range();
+                  range.id = d.id;
+                  range.start = d.start;
+                  range.end = d.end;
+                  range.tooltip = d.tooltip;
+                  range.color = (d.color) ? d.color : 'gray';
+                  range.day = day.day;
+                  range.select  = ():void => {
+                    d.select(range);
                   }
+                  if(!day.ranges){day.ranges = []};
+                  day.ranges.push(range);
                 }
               }
             }
