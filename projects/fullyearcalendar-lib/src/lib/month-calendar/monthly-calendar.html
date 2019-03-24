@@ -14,10 +14,10 @@
             <tr *ngFor="let week of month.weeks">
                 <td *ngFor="let day of week.daysOfWeek" style="text-align: center;padding: 0px !important;">
                     <div (click)="dayClick(day)" *ngIf="day.init">
-                        <div [className]="day.color ? 'day-range day tooltip' : 'day tooltip'" [ngStyle]="day.color ? {'background':day.color} : {'background':'transparent'}" >
+                        <div [className]="day.color ? 'day-range day tooltip' : 'day tooltip'" [ngStyle]="day.ranges ? {'background':day.ranges[0].color} : {'background':'transparent'}" >
                             {{day.day.getDate()}}
-                            <span *ngIf="day.tooltip" class="tooltiptext">
-                                {{day.tooltip}}
+                            <span *ngIf="day.ranges && day.ranges[0].tooltip" class="tooltiptext">
+                                {{day.ranges[0].tooltip}}
                             </span>
                         </div>
                     </div>
