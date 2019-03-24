@@ -3,5 +3,6 @@ export class Day {
     dayOfWeek:string;
     init:boolean = false;
     color:string;
+    tooltip:string;
     select;
 }

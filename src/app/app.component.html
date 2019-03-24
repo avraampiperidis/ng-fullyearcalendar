@@ -1,18 +1,32 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+
+<div style="text-align:center;">
   <h1>
-    Welcome to {{ title }}!
+    Angular FullYearCalendar Library
   </h1>
-  <label>Actions</label>
+  <label><h3>Actions</h3></label>
   <div>
-    <button (click)="year = year-1">&lt;&lt; Prev year:{{year-1}}</button>
-    <button (click)="changeMonthLocale()">change month locale</button>
-    <button (click)="changeDayLocale()">change day locale</button>
-    <button (click)="year = year+1">Next year:{{year+1}}&gt;&gt;</button>
+    <button class="ui-button-secondary" pButton (click)="value.year = value.year-1" label="&lt;&lt; Prev year:{{value.year-1}}"></button>
+    <button class="ui-button-secondary" pButton (click)="changeMonthLocale()" label="change month locale"></button>
+    <button class="ui-button-secondary" pButton (click)="changeDayLocale()" label="change day locale"></button>
+    <button class="ui-button-secondary" pButton (click)="value.year = value.year+1" label="Next year:{{value.year+1}}&gt;&gt;"></button>
+  </div>
+  <label>Add custom range</label>
+  <div>
+    <button pButton (click)="addRange()" label="add range"></button>
   </div>
 
-  <ng-fullyearcalendar-lib [(value)]="value" (onDaySelect)="onDaySelect($event)"  [year]="year"></ng-fullyearcalendar-lib>
-  selcted day: {{selectedDate | date}}
+  <div style="margin: 10px;">
+      <p-card styleClass="ui-card-shadow">
+          <ng-fullyearcalendar-lib [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+        </p-card>
+  </div>
+
+  
+  <div>
+    selcted day: {{selectedDate | date}}
+  </div>
+  
+  <create-range-dialog (onClose)="rangeDialog = false" (onSave)="onRangeCreate($event)" *ngIf="rangeDialog" [display]="rangeDialog"></create-range-dialog>
 
 </div>
 

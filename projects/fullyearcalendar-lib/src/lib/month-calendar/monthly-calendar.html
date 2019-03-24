@@ -1,21 +1,24 @@
 <div *ngIf="month" class="container">
     <div style="text-align: center;">
-        {{locale['monthNames'][month.index]}}
+        <b>{{locale['monthNames'][month.index]}}</b>
     </div>
     <table>
         <thead>
             <tr>
                 <th *ngFor="let wd of locale.dayNamesMin">
-                    <div>{{wd}}</div>
+                    <div><b>{{wd}}</b></div>
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let week of month.weeks">
-                <td *ngFor="let day of week.daysOfWeek" style="text-align: center;">
+                <td *ngFor="let day of week.daysOfWeek" style="text-align: center;padding: 0px !important;">
                     <div (click)="dayClick(day)" *ngIf="day.init">
-                        <div [ngStyle]="day.color ? {'background':day.color} : {'background':'transparent'}">
+                        <div [className]="day.color ? 'day-range day tooltip' : 'day tooltip'" [ngStyle]="day.color ? {'background':day.color} : {'background':'transparent'}" >
                             {{day.day.getDate()}}
+                            <span *ngIf="day.tooltip" class="tooltiptext">
+                                {{day.tooltip}}
+                            </span>
                         </div>
                     </div>
                 </td>

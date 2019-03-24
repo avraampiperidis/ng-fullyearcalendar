@@ -20,7 +20,7 @@ export const FULL_YEAR_DEFAULT_LOCALE:any = {
 })
 export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   
-  private initial_data:any;
+  private initial_data:string;
   
   @Input()
   locale:any = FULL_YEAR_DEFAULT_LOCALE;
@@ -28,7 +28,6 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   @Input()
   responsive:boolean = true;
 
-  @Input()
   value:any;
  
   @Output()
@@ -42,36 +41,40 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
     this.onDaySelect.unsubscribe();
   }
 
+  /**
+   * from on push in values ,comparing if there is any difference
+   */
   ngDoCheck(): void { 
-    if(JSON.stringify(this.initial_data) !== JSON.stringify(this.value)) {
-      this.initial_data = JSON.parse(JSON.stringify(this.value));
-      this.initYear(this.year.year);
+    let stringData = JSON.stringify(this.value);
+    if(this.initial_data !== stringData) {
+      this.initial_data = stringData;
+      this.initValue(this.value,stringData);
     }
   }
 
 
-  @Input('year')
-  set _initYear(year:number) {
-      this.initYear(year);
+  @Input('value')
+  set _initValue(val:any) {
+    this.value = val;
+    this.initValue(val);
   }
 
-  private initYear(year:number) {
-    this.year = new Year(year);
-    setTimeout(()=> {
-      if(this.value) {
-        this.initial_data = JSON.parse(JSON.stringify(this.value));
-        if(this.value.dates && this.value.dates.length > 0){
-          for(let d of this.value.dates) {
-            for(let m of this.year.months) {
-              for(let w of m.weeks) {
-                for(let day of w.daysOfWeek) {
-                  if(day.day >= d.start && day.day <= d.end) {
-                    day.color = d.color;
-                    day.select = ():void => {
-                      let dClone = JSON.parse(JSON.stringify(d));
-                      dClone.day = day;
-                      d.select(dClone);
-                    }
+  private initValue(val:any,oldValue:string = null):void {
+    this.year = new Year(val.year);
+      this.initial_data = oldValue != null ? oldValue : JSON.stringify(val);
+      if(this.value.dates && this.value.dates.length > 0){
+        for(let d of this.value.dates) {
+          for(let m of this.year.months) {
+            for(let w of m.weeks) {
+              for(let day of w.daysOfWeek) {
+                if(day.day >= d.start && day.day <= d.end) {
+                  day.color = d.color;
+                  day.tooltip = d.tooltip;
+                  day.select = ():void => {
+                    //lose reference
+                    let dClone = JSON.parse(JSON.stringify(d));
+                    dClone.day = day.day;
+                    d.select(dClone);
                   }
                 }
               }
@@ -79,7 +82,6 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
           }
         }
       }
-    });
   }
 
 
