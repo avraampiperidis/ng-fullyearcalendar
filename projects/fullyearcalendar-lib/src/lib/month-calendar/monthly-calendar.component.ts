@@ -31,4 +31,5 @@ export class MonthlyCalendarComponent implements OnDestroy  {
             this.onDayClicked.emit(day.day);
         }
     }
+
 }
