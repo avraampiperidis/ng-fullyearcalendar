@@ -77,7 +77,9 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
                   range.color = (d.color) ? d.color : 'gray';
                   range.day = day.day;
                   range.select  = ():void => {
-                    d.select(range);
+                    if(typeof d.select === 'function') {
+                      d.select(range);
+                    }
                   }
                   if(!day.ranges){day.ranges = []};
                   day.ranges.push(range);
