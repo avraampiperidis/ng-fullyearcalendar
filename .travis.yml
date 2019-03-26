@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "10"
+dist: xenial
+sudo: required
+branches:
+  only:
+  - dev
+before_script:
+  - echo "before script here"
+script:
+- npm ci
+- npm run build
