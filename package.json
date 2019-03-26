@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --configuration=production",
     "build:lib": "ng build fullyearcalendar-lib",
     "pack": "cd dist/fullyearcalendar-lib && npm pack",
     "package": "npm run build:lib && npm run pack",
