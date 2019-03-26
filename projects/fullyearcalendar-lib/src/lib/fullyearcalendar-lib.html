@@ -1,6 +1,6 @@
 
 <div *ngIf="year" [className]="responsive ? 'grid-container grid-responsive' : 'grid-container'">
     <div *ngFor="let month of year.months" class="grid-item">
-      <month-calendar (onDayClicked)="onDayClicked($event)" [month]="month" [locale]="locale"></month-calendar>
+      <month-calendar [underline]="underline" (onDayClicked)="onDayClicked($event)" [month]="month" [locale]="locale"></month-calendar>
     </div>
   </div>

@@ -1,22 +1,21 @@
 
 
 <p-dialog *ngIf="display" header="Add custom date range" [(visible)]="display" [closable]="false">
-    <h1 ></h1>
     <div>
         <p><b>Start Date</b></p>
-        <p-calendar appendTo="body" [(ngModel)]="fromDate"></p-calendar>
+        <p-calendar appendTo="body" [(ngModel)]="range.start"></p-calendar>
     </div>
     <div>
         <p><b>End Date</b></p>
-        <p-calendar appendTo="body" [(ngModel)]="toDate"></p-calendar>
+        <p-calendar appendTo="body" [(ngModel)]="range.end"></p-calendar>
     </div>
     <div>
         <p><b>Range Tooltip</b></p>
-        <input type="text" pInputText [(ngModel)]="tooltip"/>
+        <input type="text" pInputText [(ngModel)]="range.tooltip"/>
     </div>
     <div>
         <p><b>Range Color</b></p>
-        <p-colorPicker appendTo="body" [(ngModel)]="color"></p-colorPicker>
+        <p-colorPicker appendTo="body" [(ngModel)]="range.color"></p-colorPicker>
     </div>
 
 

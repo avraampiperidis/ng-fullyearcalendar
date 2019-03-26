@@ -22,6 +22,9 @@ export const FULL_YEAR_DEFAULT_LOCALE:any = {
 export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   
   private initial_data:string;
+
+  @Input()
+  underline:boolean = false;
   
   @Input()
   locale:any = FULL_YEAR_DEFAULT_LOCALE;

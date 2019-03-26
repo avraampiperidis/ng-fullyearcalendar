@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
   selectedDate:Date;
   value:any;
 
+  underline:boolean = false;
+  selectedRange:any;
+
   constructor(){}
 
   ngOnInit(): void {
@@ -63,9 +66,11 @@ export class AppComponent implements OnInit {
   onRangeSelect(range:any) {
     console.log('onRangeSelect',range)
     this.selectedDate = range.day;
+    this.selectedRange = range;
   }
 
   onDaySelect(day:Date):void {
+    this.selectedRange = null;
     this.selectedDate = day;
   }
   
@@ -78,13 +83,28 @@ export class AppComponent implements OnInit {
   }
 
   addRange():void {
+    this.selectedRange = null;
+    this.rangeDialog = true;
+  }
+
+  editRange():void {
     this.rangeDialog = true;
   }
 
   onRangeCreate(range:any):void {
     this.rangeDialog = false;
     range.select = (range)=> this.onRangeSelect(range);
-    this.value.dates.push(range);
+    if(range.id) {
+      for(let i=0; i < this.value.dates.length; i++) {
+        if(this.value.dates[i].id == range.id) {
+          this.value.dates[i] = range;
+          break;
+        }
+      }
+    } else {
+      range.id = new Date().getTime();
+      this.value.dates.push(range);
+    }
   }
 
 }

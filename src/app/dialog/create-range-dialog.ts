@@ -15,10 +15,8 @@ export class CreateRangeDialog implements OnInit,OnDestroy {
     @Output()
     onClose:EventEmitter<any> = new EventEmitter<any>();
 
-    fromDate:Date;
-    toDate:Date;
-    tooltip:string;
-    color:string;
+    @Input()
+    range:any;
 
     constructor(){}
 
@@ -26,19 +24,21 @@ export class CreateRangeDialog implements OnInit,OnDestroy {
         this.onSave.unsubscribe();
     }
     ngOnInit(): void {
+        if(!this.range) {
+            this.range = {};
+        }
     }
 
     onSaveClick():void {
-        if(this.fromDate && this.toDate) {
-            if(this.fromDate > this.toDate) {
+        if(this.range.start && this.range.end) {
+            if(this.range.start > this.range.end) {
                 throw new Error('start date cant be after end date!');
             }
         }
-        if((!this.fromDate) || (!this.toDate)) {
+        if((!this.range.start) || (!this.range.end)) {
             throw new Error('Start date and End date must be set');
         }
-        let ob = {start:this.fromDate,end:this.toDate,tooltip:this.tooltip,color:this.color};
-        this.onSave.emit(ob);   
+        this.onSave.emit(this.range);   
     }
 
     onCloseClick():void {

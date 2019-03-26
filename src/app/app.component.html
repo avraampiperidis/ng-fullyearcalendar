@@ -10,7 +10,11 @@
     <button class="ui-button-secondary" pButton (click)="value.year = value.year+1" label="Next year:{{value.year+1}}&gt;&gt;"></button>
   </div>
   <div>
+    <button class="ui-button-secondary" pButton (click)="underline = !underline" label="change day style"></button>
+  </div>
+  <div>
     <button pButton (click)="addRange()" label="add range"></button>
+    <button pButton [disabled]="!selectedRange" (click)="editRange()" label="edit range"></button>
   </div>
 
   <div>
@@ -19,11 +23,11 @@
   
   <div style="margin: 10px;">
       <p-card styleClass="ui-card-shadow">
-          <ng-fullyearcalendar-lib [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+          <ng-fullyearcalendar-lib [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
         </p-card>
   </div>
 
-  <create-range-dialog (onClose)="rangeDialog = false" (onSave)="onRangeCreate($event)" *ngIf="rangeDialog" [display]="rangeDialog"></create-range-dialog>
+  <create-range-dialog [range]="selectedRange" (onClose)="rangeDialog = false" (onSave)="onRangeCreate($event)" *ngIf="rangeDialog" [display]="rangeDialog"></create-range-dialog>
 
 </div>
 
