@@ -1,25 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FullyearcalendarLibComponent } from './fullyearcalendar-lib.component';
+import { Year } from './model/Year';
 
 describe('FullyearcalendarLibComponent', () => {
-  let component: FullyearcalendarLibComponent;
-  let fixture: ComponentFixture<FullyearcalendarLibComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FullyearcalendarLibComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FullyearcalendarLibComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    let year:Year = new Year(2019);
+    expect(year.months.length).toBe(12);
   });
+
 });

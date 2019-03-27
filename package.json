@@ -11,9 +11,15 @@
     "copy-license": "copy .LICENSE .dist/fullyearcalendar-lib",
     "copy-readme": "copy .README.md .dist/fullyearcalendar-lib",
     "copy-files": "npm run copy-license && npm run copy-readme",
-    "test": "ng test",
+    "test-app": "ng test full-year-calendar-lib-app",
+    "test-app-headless":"ng test full-year-calendar-lib-app --watch=false --browsers=ChromeHeadless",
+    "test-lib":"ng test fullyearcalendar-lib",
+    "test-lib-headless":"ng test fullyearcalendar-lib --watch=false --browsers=ChromeHeadless",
+    "test-all":"npm run test-app && test-lib",
+    "test-all-headless":"npm run test-app-headless && npm run test-lib-headless",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e --protractor-config=e2e/protractor.conf",
+    "e2e-headless":"ng e2e --protractor-config=e2e/protractor.headless.conf"
   },
   "private": true,
   "dependencies": {
