@@ -1,25 +1,26 @@
 
 :host {
     .grid-container {
+        width: 100%;
         display: inline-grid;
         grid-template-columns: auto auto auto;
-        grid-template-columns: repeat(4, 1fr);    
-        &.grid-responsive { 
+        grid-template-columns: repeat(4, 1fr);
+        &.grid-responsive {
             $small:400px;
             $small-med:700px;
             $medium:900px;
             $large:1290px;
             @media screen and (min-width:$small) {
-                grid-template-columns: repeat(2, 1fr) !important;    
+                grid-template-columns: repeat(2, 1fr) !important;
             }
             @media screen and (min-width:$small-med) {
-                grid-template-columns: repeat(3, 1fr) !important;    
+                grid-template-columns: repeat(3, 1fr) !important;
             }
             @media screen and (min-width:$medium) {
-                grid-template-columns: repeat(4, 1fr) !important;    
+                grid-template-columns: repeat(4, 1fr) !important;
             }
             @media screen and (min-width:$large) {
-                grid-template-columns: repeat(6, 1fr) !important;    
+                grid-template-columns: repeat(6, 1fr) !important;
             }
         }
     }
