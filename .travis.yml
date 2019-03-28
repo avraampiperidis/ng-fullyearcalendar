@@ -12,4 +12,4 @@ script:
 - npm ci
 - npm run build
 - npm run test-all-headless
-- npm run e2e-headless
+# - npm run e2e-headless
