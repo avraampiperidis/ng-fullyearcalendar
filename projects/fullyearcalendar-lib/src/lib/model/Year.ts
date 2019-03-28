@@ -25,7 +25,7 @@ export class Year {
 
     private _initYear(): void {
         for (let i = 0; i < 12; i++) {
-            let days:Day[] = this.getMonthDays(i, this.year)
+            let days:Day[] = this.getMonthDays(i)
             let month = new Month(days);
             month.index = i;
             month.days = days;
@@ -33,14 +33,14 @@ export class Year {
         }
     }
 
-    private getMonthDays(month: number, year: number): Day[] {
-        let date = new Date(year, month, 1);
+    getMonthDays(month: number): Day[] {
+        let date = new Date(this.year, month, 1);
         let days: Day[] = [];
         while (date.getMonth() === month) {
-            let bookingDay = new Day();
-            bookingDay.day = new Date(date);
-            bookingDay.dayOfWeek = this.getDayOfWeek(bookingDay.day.getDay());
-            days.push(bookingDay);
+            let day = new Day();
+            day.day = new Date(date);
+            day.dayOfWeek = this.getDayOfWeek(day.day.getDay());
+            days.push(day);
             date.setDate(date.getDate() + 1);
         }
         return days;
