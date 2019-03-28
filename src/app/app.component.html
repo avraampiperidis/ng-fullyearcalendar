@@ -1,34 +1,35 @@
 
-<div style="text-align:center;">
-  <h2>
-    Angular FullYearCalendar Library
-  </h2>
-  <div>
-    <button class="ui-button-secondary" pButton (click)="value.year = value.year-1" label="&lt;&lt; Prev year:{{value.year-1}}"></button>
-    <button class="ui-button-secondary" pButton (click)="changeMonthLocale()" label="change month locale"></button>
-    <button class="ui-button-secondary" pButton (click)="changeDayLocale()" label="change day locale"></button>
-    <button class="ui-button-secondary" pButton (click)="value.year = value.year+1" label="Next year:{{value.year+1}}&gt;&gt;"></button>
-  </div>
-  <div>
-    <button class="ui-button-secondary" pButton (click)="underline = !underline" label="change day style"></button>
-  </div>
-  <div>
-    <button pButton (click)="addRange()" label="add range"></button>
-    <button pButton [disabled]="!selectedRange" (click)="editRange()" label="edit range"></button>
+  <div class="p-grid p-nogutter">
+    <div class="p-col-12 p-nogutter">
+      <p-panel >
+        <p-header>
+          <div style="text-align: center; font-size: 2em; font-weight: bold;">Angular Full Year Calendar Library Demo</div>
+        </p-header>
+              <p-button ngClass="button" (click)="value.year = value.year-1" label="&lt;&lt; Prev Year:{{value.year-1}}"></p-button>
+              <p-button ngClass="button" (click)="value.year = value.year+1" label="Next Year:{{value.year+1}}&gt;&gt;"></p-button>
+
+              <p-button ngClass="button" (click)="changeMonthLocale()" label="Change Month Locale"></p-button>
+              <p-button ngClass="button" (click)="changeDayLocale()" label="change day locale"></p-button>
+
+              <p-button ngClass="button" (click)="underline = !underline" label="change day style"></p-button>
+              <p-button ngClass="button" (click)="addRange()" label="add range"></p-button>
+              <p-button ngClass="button" [disabled]="!selectedRange" (click)="editRange()" label="edit range"></p-button>
+        <p-footer>
+            <div *ngIf="selectedDate" style="text-align: center">Selcted day: <span style="font-weight: bold;">{{selectedDate | date}}</span></div>
+            <div *ngIf="!selectedDate"style="text-align: center">Selcted day: <span style="font-weight: bold;"> None</span></div>
+        </p-footer>
+    </p-panel>
+    </div>
+    <div class="p-col-12 p-nogutter">
+        <p-panel [style]="{'margin-top':'1em'}">
+            <p-header>
+                <div style="text-align: center; font-weight: bold;">Calendar</div>
+            </p-header>
+            <ng-fullyearcalendar-lib [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+        </p-panel>
+    </div>
   </div>
 
-  <div>
-    selcted day: {{selectedDate | date}}
-  </div>
-  
-  <div style="margin: 10px;">
-      <p-card styleClass="ui-card-shadow">
-          <ng-fullyearcalendar-lib [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
-        </p-card>
-  </div>
 
   <create-range-dialog [range]="selectedRange" (onClose)="rangeDialog = false" (onSave)="onRangeCreate($event)" *ngIf="rangeDialog" [display]="rangeDialog"></create-range-dialog>
-
-</div>
-
 
