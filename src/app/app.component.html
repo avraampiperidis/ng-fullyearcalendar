@@ -3,7 +3,7 @@
     <div class="p-col-12 p-nogutter">
       <p-panel >
         <p-header>
-          <div style="text-align: center; font-size: 2em; font-weight: bold;">Angular Full Year Calendar Library Demo</div>
+          <div style="text-align: center; font-size: 1.5em; font-weight: bold;">A full year calendar component for Angular applications</div>
         </p-header>
              <div style="margin: 0px auto; width: 1040px;">
                 <p-button ngClass="button" (click)="value.year = value.year-1" label="&lt;&lt; Prev Year:{{value.year-1}}"></p-button>
@@ -25,7 +25,7 @@
     <div class="p-col-12 p-nogutter">
         <p-panel [style]="{'margin-top':'1em'}">
             <p-header>
-                <div style="text-align: center; font-weight: bold;">Calendar</div>
+                <div style="text-align: center; font-weight: bold;">Full Year Calendar</div>
             </p-header>
             <ng-fullyearcalendar-lib [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
         </p-panel>
