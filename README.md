@@ -14,11 +14,9 @@ imports:[
 	FullyearcalendarLibModule
 ]
 ```
-<b>html</b><br>
-```html
-<ng-fullyearcalendar-lib [value]="value"></ng-fullyearcalendar-lib>
-```
 
+<b>html</b><br>
+<ng-fullyearcalendar-lib [value]="value"></ng-fullyearcalendar-lib>
 <b>Component</b><br>
 
 ```typescript
