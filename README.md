@@ -6,7 +6,7 @@ A full year calendar for Angular applications. <br>
 
 #### Simple  usage
 <img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="550" />
-<b>Module</b>
+<b>Module</b><br>
 ```typescript
 import { FullyearcalendarLibModule } from 'node_modules/fullyearcalendar-lib/';
 //your module
@@ -16,11 +16,11 @@ FullyearcalendarLibModule
 ...
 ]
 ```
-<b>html</b>
+<b>html</b><br>
 ```html
 <ng-fullyearcalendar-lib [value]="value"></ng-fullyearcalendar-lib>
 ```
-<b>Component</b>
+<b>Component</b><br>
 ```typescript
 import { IInputData } from 'fullyearcalendar-lib/lib/Interface/IInputData';
 
@@ -28,3 +28,4 @@ value:IInputData = {
       year: new Date().getFullYear() //2019
 };
 ```
+<br>
