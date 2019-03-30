@@ -25,12 +25,12 @@ value:IInputData = {
 ```
 #### features
 <b>Year navigation</b><br>
-<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="750" />
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="750" /><br>
 <b>Date Selection</b><br>
-<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/select.gif?raw=true" width="750" />
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/select.gif?raw=true" width="750" /><br>
 <b>Date Ranges</b><br>
-<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/range.gif?raw=true" width="750" />
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/range.gif?raw=true" width="750" /><br>
 <b>Calendar dates overline styles</b><br>
-<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/overline.gif?raw=true" width="750" />
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/overline.gif?raw=true" width="750" /><br>
 <b>Custom Locale</b><br>
-<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/locale.gif?raw=true" width="750" />
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/locale.gif?raw=true" width="750" /><br>
