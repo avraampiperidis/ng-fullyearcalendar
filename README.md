@@ -10,7 +10,11 @@ A full year calendar for Angular applications. <br>
 <b>Module</b>
 <br>
 ```typescript
-import { FullyearcalendarLibModule } from 'node_modules/fullyearcalendar-lib/';
+import { IInputData } from 'fullyearcalendar-lib/lib/Interface/IInputData';
+
+value:IInputData = {
+      year: new Date().getFullYear() //2019
+};
 ```
 <br>
 <b>html</b><br>
