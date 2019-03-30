@@ -12,6 +12,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputTextModule} from 'primeng/inputtext';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {PanelModule} from 'primeng/panel';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {PanelModule} from 'primeng/panel';
     CalendarModule,
     InputTextModule,
     ColorPickerModule,
-    PanelModule
+    PanelModule,
+    CheckboxModule
   ],
   // entryComponents:[CreateRangeDialog],
   providers: [],

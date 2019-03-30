@@ -26,6 +26,8 @@ export class AppComponent implements OnInit {
   underline: boolean = false;
   selectedRange: any;
 
+  responsive:boolean = true;
+
   constructor() {}
 
   ngOnInit(): void {

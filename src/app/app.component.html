@@ -6,7 +6,7 @@
           <div style="text-align: center; font-size: 1.5em; font-weight: bold;">A full year calendar component for Angular applications</div>
         </p-header>
              <div style="margin: 0px auto; width: 1040px;">
-                <p-button ngClass="button" (click)="value.year = value.year-1" label="&lt;&lt; Prev Year:{{value.year-1}}"></p-button>
+              <p-button ngClass="button" (click)="value.year = value.year-1" label="&lt;&lt; Prev Year:{{value.year-1}}"></p-button>
               <p-button ngClass="button" (click)="value.year = value.year+1" label="Next Year:{{value.year+1}}&gt;&gt;"></p-button>
 
               <p-button ngClass="button" (click)="changeMonthLocale()" label="Change Month Locale"></p-button>
@@ -17,6 +17,7 @@
               <p-button ngClass="button" [disabled]="!selectedRange" (click)="editRange()" label="edit range"></p-button>
              </div>
         <p-footer>
+            <p-checkbox [(ngModel)]="responsive" binary="true" label="responsive"></p-checkbox>
             <div *ngIf="selectedDate" style="text-align: center">Selcted day: <span style="font-weight: bold;">{{selectedDate | date}}</span></div>
             <div *ngIf="!selectedDate"style="text-align: center">Selcted day: <span style="font-weight: bold;"> None</span></div>
         </p-footer>
@@ -27,7 +28,7 @@
             <p-header>
                 <div style="text-align: center; font-weight: bold;">Full Year Calendar</div>
             </p-header>
-            <ng-fullyearcalendar-lib [locale]="locale" [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+            <ng-fullyearcalendar-lib [responsive]="responsive" [locale]="locale" [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
         </p-panel>
     </div>
   </div>

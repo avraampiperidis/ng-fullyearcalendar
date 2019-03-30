@@ -6,10 +6,14 @@
         grid-template-columns: auto auto auto;
         grid-template-columns: repeat(4, 1fr);
         &.grid-responsive {
+            $very-small:0px;
             $small:400px;
             $small-med:700px;
             $medium:900px;
             $large:1290px;
+            @media screen and (min-width:$very-small) {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
             @media screen and (min-width:$small) {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
