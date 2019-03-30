@@ -27,11 +27,11 @@
             <p-header>
                 <div style="text-align: center; font-weight: bold;">Full Year Calendar</div>
             </p-header>
-            <ng-fullyearcalendar-lib [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+            <ng-fullyearcalendar-lib [locale]="locale" [underline]="underline" [(value)]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
         </p-panel>
     </div>
   </div>
 
 
-  <create-range-dialog [range]="selectedRange" (onClose)="rangeDialog = false" (onSave)="onRangeCreate($event)" *ngIf="rangeDialog" [display]="rangeDialog"></create-range-dialog>
+  <create-range-dialog [range]="selectedRange"  (onClose)="rangeDialog = false" (onSave)="onRangeCreate($event)" *ngIf="rangeDialog" [display]="rangeDialog"></create-range-dialog>
 

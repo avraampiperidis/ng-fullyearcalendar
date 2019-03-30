@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FULL_YEAR_DEFAULT_LOCALE } from 'projects/fullyearcalendar-lib/src/public_api';
 import { IInputData } from 'projects/fullyearcalendar-lib/src/lib/Interface/IInputData';
+import { LocaleSettings } from 'projects/fullyearcalendar-lib/src/lib/Interface/LocaleSettings';
+
+const dayNamesEn:string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const dayNamesGr:string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
+const monthNamesEn:string[] = [ "January","February","March","April","May","June","July","August","September","October","November","December" ];
+const monthNamesGr:string[] = ['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάϊος','Ιούνιος','Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώμβριος','Νοέμβριος','Δεκέμβριος'];
 
 @Component({
   selector: 'app-root',
@@ -10,27 +15,10 @@ import { IInputData } from 'projects/fullyearcalendar-lib/src/lib/Interface/IInp
 export class AppComponent implements OnInit {
   rangeDialog: boolean = false;
 
-  //my greek locale month names
-  monthNamesGr: string[] = [
-    'Ιανουάριος',
-    'Φεβρουάριος',
-    'Μάρτιος',
-    'Απρίλιος',
-    'Μάϊος',
-    'Ιούνιος',
-    'Ιούλιος',
-    'Αύγουστος',
-    'Σεπτέμβριος',
-    'Οκτώμβριος',
-    'Νοέμβριος',
-    'Δεκέμβριος'
-  ];
-  //En months locale
-  monthNamesEn = FULL_YEAR_DEFAULT_LOCALE.monthNames;
-  // dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-  dayNamesMinGr: string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
-  dayNamesMinEn: string[] = FULL_YEAR_DEFAULT_LOCALE.dayNamesMin;
-  locale: any = FULL_YEAR_DEFAULT_LOCALE;
+  locale: LocaleSettings = {
+    dayNamesMin: dayNamesEn,
+    monthNames: monthNamesEn
+  };
 
   selectedDate: Date;
   value: IInputData;
@@ -89,16 +77,16 @@ export class AppComponent implements OnInit {
 
   changeMonthLocale(): void {
     this.locale.monthNames =
-      this.locale.monthNames == this.monthNamesGr
-        ? this.monthNamesEn
-        : this.monthNamesGr;
+      this.locale.monthNames == monthNamesGr
+        ? monthNamesEn
+        : monthNamesGr;
   }
 
   changeDayLocale(): void {
     this.locale.dayNamesMin =
-      this.locale.dayNamesMin == this.dayNamesMinGr
-        ? this.dayNamesMinEn
-        : this.dayNamesMinGr;
+      this.locale.dayNamesMin == dayNamesGr
+        ? dayNamesEn
+        : dayNamesGr;
   }
 
   addRange(): void {
@@ -113,6 +101,7 @@ export class AppComponent implements OnInit {
   onRangeCreate(range: any): void {
     this.rangeDialog = false;
     range.select = range => this.onRangeSelect(range);
+    //if it has id i suppose its update otherwise its a new record
     if (range.id) {
       for (let i = 0; i < this.value.dates.length; i++) {
         if (this.value.dates[i].id == range.id) {

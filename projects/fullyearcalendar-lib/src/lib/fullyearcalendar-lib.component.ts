@@ -1,18 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnDestroy, DoCheck } from '@angular/core';
-import { DayOfWeek } from './model/dayOfWeek';
 import { Year } from './model/Year';
 import {Range} from './model/Range';
-
-export const FULL_YEAR_DEFAULT_LOCALE:any = {
-  firstDayOfWeek: 0,
-  dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-  dayNamesEnum: [DayOfWeek.SUNDAY, DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY],
-  dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-  dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-  monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ],
-  monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  dateFormat: 'mm/dd/yy'
-};
+import { IInputData } from './Interface/IInputData';
+import { LocaleSettings } from './Interface/LocaleSettings';
 
 @Component({
   selector: 'ng-fullyearcalendar-lib',
@@ -27,12 +17,15 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   underline:boolean = false;
   
   @Input()
-  locale:any = FULL_YEAR_DEFAULT_LOCALE;
+  locale:LocaleSettings = {
+    dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ],
+  };
 
   @Input()
   responsive:boolean = true;
 
-  value:any;
+  value:IInputData;
  
   @Output()
   onDaySelect:EventEmitter<Date> = new EventEmitter<Date>();
@@ -58,12 +51,12 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
 
 
   @Input('value')
-  set _initValue(val:any) {
+  set _initValue(val:IInputData) {
     this.value = val;
     this.initValue(val);
   }
 
-  private initValue(val:any,oldValue:string = null):void {
+  private initValue(val:IInputData,oldValue:string = null):void {
     this.year = new Year(val.year);
       this.initial_data = oldValue != null ? oldValue : JSON.stringify(val);
       if(this.value.dates && this.value.dates.length > 0){
