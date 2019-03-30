@@ -11,7 +11,6 @@ A full year calendar for Angular applications. <br>
 <br>
 ```typescript
 import { FullyearcalendarLibModule } from 'node_modules/fullyearcalendar-lib/';
-//your module
 imports:[
 	FullyearcalendarLibModule
 ]
