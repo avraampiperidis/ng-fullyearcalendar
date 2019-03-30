@@ -4,7 +4,7 @@ A full year calendar for Angular applications. <br>
 <br>
 <b>[Live Demo](https://avraampiperidis.github.io/ng-fullyearcalendar/docs/) </b> <br>
 
-#### Simple  usage
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="750" />
 <br>
 ```typescript
 //in module
