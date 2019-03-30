@@ -7,7 +7,7 @@ A full year calendar for Angular applications. <br>
 #### Simple  usage
 <img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="750" />
 <br>
-```typescript
+```javascript
 //in module
 import { FullyearcalendarLibModule } from 'node_modules/fullyearcalendar-lib/';
 //in component
