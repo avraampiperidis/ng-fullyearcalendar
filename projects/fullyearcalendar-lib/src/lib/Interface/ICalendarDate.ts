@@ -5,5 +5,5 @@ export interface ICalendarDate {
   end: Date;
   color?: string;
   day?:Date;
-  select(range: ICalendarDate): void;
+  select?(range: ICalendarDate): void;
 }
