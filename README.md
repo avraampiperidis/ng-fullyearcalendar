@@ -5,22 +5,22 @@ A full year calendar for Angular applications. <br>
 <b>[Live Demo](https://avraampiperidis.github.io/ng-fullyearcalendar/docs/) </b> <br>
 
 #### Simple  usage
-<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="550" />
+<img src="https://github.com/avraampiperidis/ng-fullyearcalendar/blob/dev/assets/year_nav.gif?raw=true" width="750" />
 <b>Module</b><br>
 ```typescript
 import { FullyearcalendarLibModule } from 'node_modules/fullyearcalendar-lib/';
 //your module
 imports:[
-...
-FullyearcalendarLibModule
-...
+	FullyearcalendarLibModule
 ]
 ```
 <b>html</b><br>
 ```html
 <ng-fullyearcalendar-lib [value]="value"></ng-fullyearcalendar-lib>
 ```
+
 <b>Component</b><br>
+
 ```typescript
 import { IInputData } from 'fullyearcalendar-lib/lib/Interface/IInputData';
 
@@ -28,4 +28,5 @@ value:IInputData = {
       year: new Date().getFullYear() //2019
 };
 ```
+
 <br>
