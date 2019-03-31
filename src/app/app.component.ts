@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IInputData } from 'projects/fullyearcalendar-lib/src/lib/Interface/IInputData';
 import { LocaleSettings } from 'projects/fullyearcalendar-lib/src/lib/Interface/LocaleSettings';
-import { ICalendarDate } from 'fullyearcalendar-lib/lib/Interface/ICalendarDate';
+import { ICalendarDate } from 'projects/fullyearcalendar-lib/src/lib/Interface/ICalendarDate';
 
 const dayNamesEn:string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 const dayNamesGr:string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
