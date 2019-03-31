@@ -24,6 +24,58 @@ value:IInputData = {
 };
 ```
 
+## Date ranges
+```typescript
+import { ICalendarDate } from 'fullyearcalendar-lib/lib/Interface/ICalendarDate';
+
+value:IInputData = {
+      year: new Date().getFullYear(), //2019
+      dates: [
+        {
+          id: 1,
+          tooltip: 'Range 1',
+          start: new Date('2018-12-21T00:34:15Z'),
+          end: new Date('2019-01-10T00:34:15Z'),
+          color: 'grey',
+          select: (range: ICalendarDate) => this.onRangeSelect(range)
+        },
+        {
+          id: 2,
+          tooltip: 'big tooltip text for range 2',
+          start: new Date('2019-03-21T00:34:15Z'),
+          end: new Date('2019-05-21T00:34:15Z'),
+          color: 'orange',
+          select: (range: ICalendarDate) => this.onRangeSelect(range)
+        },
+        {
+          id: 3,
+          tooltip: 'Range 3',
+          start: new Date('2019-08-11T00:34:15Z'),
+          end: new Date('2019-08-21T00:34:15Z'),
+          color: '#2edb57',
+          select: (range: ICalendarDate) => this.onRangeSelect(range)
+        }
+      ],
+};
+
+onRangeSelect(range:ICalendarDate):void {
+}
+```
+
+## Custom Locale
+```typescript
+import { LocaleSettings } from 'fullyearcalendar-lib/lib/Interface/LocaleSettings';
+
+locale: LocaleSettings = {
+    dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ]
+};
+```
+
+```html
+<ng-fullyearcalendar-lib [responsive]="responsive" [locale]="locale" [underline]="underline" [value]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+```
+
 #### Properties
 
 <table>
@@ -101,11 +153,9 @@ value:IInputData = {
 		<td>
 			callback when a day out of a range is selected.
 		</td>
-	
 	</tr>
 </tbody>
 </table>
-
 
 #### features
 <b>Year navigation</b><br>
