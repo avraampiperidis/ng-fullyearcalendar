@@ -74,7 +74,7 @@ locale: LocaleSettings = {
 
 ## Disabled days
 ```typescript
-import { LocaleSettings } from 'fullyearcalendar-lib/lib/Interface/IDisabledDate';
+import { ICalendarDate } from 'fullyearcalendar-lib/lib/Interface/ICalendarDate';
 
 value:IInputData = {
       year: new Date().getFullYear(), //2019
