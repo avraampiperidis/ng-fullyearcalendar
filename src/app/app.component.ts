@@ -46,8 +46,8 @@ export class AppComponent implements OnInit {
         {
           id: 2,
           tooltip: 'big tooltip text for range 2',
-          start: new Date('2019-03-21T00:34:15Z'),
-          end: new Date('2019-05-21T00:34:15Z'),
+          start: new Date('2019-03-21'),
+          end: new Date('2019-05-21'),
           color: 'orange',
           select: (range: ICalendarDate) => this.onRangeSelect(range)
         },
@@ -61,8 +61,9 @@ export class AppComponent implements OnInit {
         }
       ],
       disabledDays: [
-        new Date('2019-07-21T00:34:15Z'),
-        new Date('2019-07-25T00:34:15Z')
+        {date:new Date('2019-07-21')},
+        {date:new Date('2019-04-05')},
+        {date:new Date('2019-07-25'),tooltip:'closed'}
       ]
     };
   }

@@ -13,8 +13,8 @@
         <tbody>
             <tr *ngFor="let week of month.weeks">
                 <td *ngFor="let day of week.daysOfWeek" style="text-align: center;padding: 0px;">
-                    <div (click)="dayClick(day)" *ngIf="day.init">
-                        <div class="day tooltip" [ngStyle]="day.ranges ? (underline) ? {'border-bottom':'5px solid ' + day.ranges[0].color,'margin-bottom':'-5px'} : {'background':day.ranges[0].color} : {'background':'transparent'}" >
+                    <div [className]="day && day.isDisabled ? 'disabled' : ''" (click)="day && day.isDisabled ? $event.stopPropagation() : dayClick(day)" *ngIf="day.init">
+                        <div #activeday class="day tooltip" [ngStyle]="day.ranges ? (underline) ? {'border-bottom':'5px solid ' + day.ranges[0].color,'margin-bottom':'-5px'} : {'background':day.ranges[0].color} : {'background':'transparent'}" >
                             {{day.day.getDate()}}
                             <span *ngIf="day.ranges">
                                 <span class="tooltiptext">

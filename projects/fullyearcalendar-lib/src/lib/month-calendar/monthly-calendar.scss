@@ -13,6 +13,9 @@
         border: 0px;
         border-radius: 3px;
     }
+    .disabled {
+        color: gray;
+    }
     .tooltip .tooltiptext {
         visibility: hidden;
         background-color: rgba(230, 222, 222, 0.986);

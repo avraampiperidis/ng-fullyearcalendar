@@ -7,4 +7,5 @@ export class Day {
     color:string;
     tooltip:string;
     ranges:Range[];
+    isDisabled?:boolean = false;
 }

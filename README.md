@@ -72,6 +72,20 @@ locale: LocaleSettings = {
 };
 ```
 
+## Disabled days
+```typescript
+import { LocaleSettings } from 'fullyearcalendar-lib/lib/Interface/IDisabledDate';
+
+value:IInputData = {
+      year: new Date().getFullYear(), //2019
+      disabledDays: [
+        {date:new Date('2019-07-21T00:34:15Z')},
+        {date:new Date('2019-04-05T00:34:15Z')},
+        {date:new Date('2019-07-25T00:34:15Z'),tooltip:'closed'}
+      ]
+};
+```
+
 ```html
 <ng-fullyearcalendar-lib [responsive]="responsive" [locale]="locale" [underline]="underline" [value]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
 ```
