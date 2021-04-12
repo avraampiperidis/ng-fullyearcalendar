@@ -1,4 +1,5 @@
 # Full Year Calendar
+## This is an ABANDONED project! 
 A full year calendar for Angular applications. <br>
 [![Build Status](https://travis-ci.org/avraampiperidis/ng-fullyearcalendar.svg?branch=dev)](https://travis-ci.org/avraampiperidis/ng-fullyearcalendar)
 <br>
