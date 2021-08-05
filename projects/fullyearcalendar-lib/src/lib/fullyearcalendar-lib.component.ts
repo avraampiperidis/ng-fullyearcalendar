@@ -15,6 +15,9 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   private initial_data:string;
 
   @Input()
+  startingMonth: number = 0;
+
+  @Input()
   underline:boolean = false;
   
   @Input()
@@ -58,7 +61,7 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   }
 
   private initValue(val:IInputData,oldValue:string = null):void {
-    this.year = new Year(val.year);
+    this.year = new Year(val.year, this.startingMonth);
       this.initial_data = oldValue != null ? oldValue : JSON.stringify(val);
           for(let m of this.year.months) {
             for(let w of m.weeks) {
