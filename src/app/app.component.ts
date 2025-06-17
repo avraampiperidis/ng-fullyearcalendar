@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { IInputData } from 'projects/fullyearcalendar-lib/src/lib/Interface/IInputData';
-import { LocaleSettings } from 'projects/fullyearcalendar-lib/src/lib/Interface/LocaleSettings';
-import { ICalendarDate } from 'projects/fullyearcalendar-lib/src/lib/Interface/ICalendarDate';
+import {Component, OnInit} from '@angular/core';
+import {IInputData} from 'projects/fullyearcalendar-lib/src/lib/Interface/IInputData';
+import {LocaleSettings} from 'projects/fullyearcalendar-lib/src/lib/Interface/LocaleSettings';
+import {ICalendarDate} from 'projects/fullyearcalendar-lib/src/lib/Interface/ICalendarDate';
 
-const dayNamesEn:string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-const dayNamesGr:string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
-const monthNamesEn:string[] = [ "January","February","March","April","May","June","July","August","September","October","November","December" ];
-const monthNamesGr:string[] = ['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάϊος','Ιούνιος','Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώμβριος','Νοέμβριος','Δεκέμβριος'];
+const dayNamesEn: string[] = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+const dayNamesGr: string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
+const monthNamesEn: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const monthNamesGr: string[] = ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάϊος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώμβριος', 'Νοέμβριος', 'Δεκέμβριος'];
 
 @Component({
   selector: 'app-root',
@@ -27,9 +27,10 @@ export class AppComponent implements OnInit {
   underline: boolean = false;
   selectedRange: ICalendarDate;
 
-  responsive:boolean = true;
+  responsive: boolean = true;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.value = {
@@ -61,9 +62,9 @@ export class AppComponent implements OnInit {
         }
       ],
       disabledDays: [
-        {date:new Date('2019-07-21')},
-        {date:new Date('2019-04-05')},
-        {date:new Date('2019-07-25'),tooltip:'closed'}
+        {date: new Date('2019-07-21')},
+        {date: new Date('2019-04-05')},
+        {date: new Date('2019-07-25'), tooltip: 'closed'}
       ]
     };
   }
@@ -105,7 +106,7 @@ export class AppComponent implements OnInit {
   onRangeCreate(range: any): void {
     this.rangeDialog = false;
     range.select = range => this.onRangeSelect(range);
-    //if it has id i suppose its update otherwise its a new record
+    // if it has id i suppose its update otherwise its a new record
     if (range.id) {
       for (let i = 0; i < this.value.dates.length; i++) {
         if (this.value.dates[i].id == range.id) {
