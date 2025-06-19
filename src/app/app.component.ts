@@ -5,8 +5,14 @@ import {ICalendarDate} from 'projects/fullyearcalendar-lib/src/lib/Interface/ICa
 
 const dayNamesEn: string[] = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const dayNamesGr: string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
-const monthNamesEn: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const monthNamesGr: string[] = ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάϊος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώμβριος', 'Νοέμβριος', 'Δεκέμβριος'];
+const monthNamesEn: string[] = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+const monthNamesGr: string[] = [
+  'Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάϊος', 'Ιούνιος',
+  'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώμβριος', 'Νοέμβριος', 'Δεκέμβριος'
+];
 
 @Component({
   selector: 'app-root',
@@ -14,7 +20,7 @@ const monthNamesGr: string[] = ['Ιανουάριος', 'Φεβρουάριος'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  rangeDialog: boolean = false;
+  rangeDialog = false;
 
   locale: LocaleSettings = {
     dayNamesMin: dayNamesEn,
@@ -24,10 +30,10 @@ export class AppComponent implements OnInit {
   selectedDate: Date;
   value: IInputData;
 
-  underline: boolean = false;
+  underline = false;
   selectedRange: ICalendarDate;
 
-  responsive: boolean = true;
+  responsive = true;
 
   constructor() {
   }
@@ -105,7 +111,8 @@ export class AppComponent implements OnInit {
 
   onRangeCreate(range: any): void {
     this.rangeDialog = false;
-    range.select = range => this.onRangeSelect(range);
+    // tslint:disable-next-line:no-shadowed-variable
+    range.select = (range: ICalendarDate) => this.onRangeSelect(range);
     // if it has id i suppose its update otherwise its a new record
     if (range.id) {
       for (let i = 0; i < this.value.dates.length; i++) {
