@@ -2,12 +2,20 @@
 
 Requires Angular 16.
 
-A full year calendar for Angular applications. <br>
-[![Build Status](https://travis-ci.org/avraampiperidis/ng-fullyearcalendar.svg?branch=dev)](https://travis-ci.org/avraampiperidis/ng-fullyearcalendar)
-<br>
-<b>[Live Demo](https://avraampiperidis.github.io/ng-fullyearcalendar/docs/) </b> <br>
+## Build
+
+1. Bump version in `projects/fullyearcalendar-lib/package.json`
+2. Run `ng build fullyearcalendar-lib --prod` to build the library.
+3. Go to the `dist/fullyearcalendar-lib` directory.
+4. Publish the package to npm with `npm publish --access public`.
+
+## Test the demo app
+
+`ng serve --watch --open`
+
 ## Install
 npm i  fullyearcalendar-lib
+
 ## Simple  usage
 <b>Module</b>
 ```typescript
