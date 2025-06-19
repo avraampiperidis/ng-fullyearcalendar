@@ -10,7 +10,7 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -145,7 +144,9 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/fullyearcalendar-lib/tsconfig.lib.json",
-            "project": "projects/fullyearcalendar-lib/ng-package.json"
+            "project": "projects/fullyearcalendar-lib/ng-package.json",
+            "aot": true,
+            "vendorChunk": true
           }
         },
         "test": {
@@ -170,6 +171,5 @@
         }
       }
     }
-  },
-  "defaultProject": "full-year-calendar-lib-app"
+  }
 }

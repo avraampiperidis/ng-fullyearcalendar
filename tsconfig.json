@@ -26,5 +26,11 @@
         "dist/fullyearcalendar-lib/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true,
+    "fullTemplateTypeCheck": true,
+    "compilationMode": "partial",
+    "strictInjectionParameters": true
   }
 }
