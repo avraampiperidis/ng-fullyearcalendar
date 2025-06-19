@@ -141,12 +141,10 @@
       "prefix": "ng",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/fullyearcalendar-lib/tsconfig.lib.json",
-            "project": "projects/fullyearcalendar-lib/ng-package.json",
-            "aot": true,
-            "vendorChunk": true
+            "project": "projects/fullyearcalendar-lib/ng-package.json"
           }
         },
         "test": {
